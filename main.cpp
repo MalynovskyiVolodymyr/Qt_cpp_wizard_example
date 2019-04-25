@@ -1,20 +1,31 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QTranslator>
+#include <QLocale>
+#include <QLibraryInfo>
+#include <QtWidgets>
+#include "my_wizardpage.h"
+
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication app(argc, argv);
 
-    QGuiApplication app(argc, argv);
+#ifndef QT_NO_TRANSLATION
+    QString translatorFileName = QLatin1String("qt_");
+    translatorFileName += QLocale::system().name();
+    QTranslator *translator = new QTranslator(&app);
+    if (translator->load(translatorFileName, QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+        app.installTranslator(translator);
+#endif
 
-    QQmlApplicationEngine engine;
-    const QUrl url(QStringLiteral("qrc:/main.qml"));
-    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
-                     &app, [url](QObject *obj, const QUrl &objUrl) {
-        if (!obj && url == objUrl)
-            QCoreApplication::exit(-1);
-    }, Qt::QueuedConnection);
-    engine.load(url);
+    QWizard wizard;
+    wizard.addPage(new MyWizardPage("test", "test 2"));
+    wizard.addPage(new MyWizardPage("test", "test 3"));
+    wizard.addPage(new MyWizardPage("test", "test 4"));
+
+    wizard.setWindowTitle("My custom wizard");
+    wizard.show();
 
     return app.exec();
 }

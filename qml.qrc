@@ -1,5 +1,5 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
+<RCC>   
+    <qresource prefix="images">
+        <file alias="logo.png">images/logo.png</file>
     </qresource>
 </RCC>
