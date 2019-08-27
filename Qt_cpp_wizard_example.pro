@@ -1,5 +1,5 @@
 QT += quick
-CONFIG += c++14
+# CONFIG += c++14
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
 # depend on your compiler). Refer to the documentation for the
@@ -26,9 +26,9 @@ QML_IMPORT_PATH =
 QML_DESIGNER_IMPORT_PATH =
 
 # Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
+# qnx: target.path = /tmp/$${TARGET}/bin
+# else: unix:!android: target.path = /opt/$${TARGET}/bin
+# !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
     my_wizardpage.h
