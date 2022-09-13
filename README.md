@@ -4,7 +4,6 @@
 ### Qt Quick cpp wizard
 
 ### email: malinovskiynewpost@gmail.com
-### phone: +380962942712
 ### web-site: https://supersalo.herokuapp.com 
 https://www.linkedin.com/in/volodymyr-malynovskyi-3bb200183/  my linkedin profile
 #### Intermediary: BANK OF NEW YORK MELLON, New York, USA
